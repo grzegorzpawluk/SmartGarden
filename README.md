@@ -20,16 +20,19 @@ SmartGarden: weather station, lighting control, garden irrigation.
 
 3.	LAMP
    - https://howtoraspberrypi.com/how-to-install-web-server-raspberry-pi-lamp/
+
 in my case I don't use 
 ```
 DROP USER 'root'@'localhost';
 ```
 
+TODO: advanced apache configuration
+
 4.	No-IP: Free Dynamic DNS 
    - [noip](https://www.noip.com/support/knowledgebase/install-ip-duc-onto-raspberry-pi/)
 
 5.	SSL
-   - [ltes encrypt](https://pimylifeup.com/raspberry-pi-ssl-lets-encrypt/)
+   - [Let’s Encrypt](https://pimylifeup.com/raspberry-pi-ssl-lets-encrypt/)
    - [How to fix missing dirmngr](https://blog.sleeplessbeastie.eu/2017/11/02/how-to-fix-missing-dirmngr/)
      - sudo apt-get install dirmngr --install-recommends
 
@@ -49,16 +52,18 @@ DROP USER 'root'@'localhost';
 
 paste this to crontab -e
 ```
-@reboot sleep 60 && /home/pi/serwer_raspberry_pi/rebootNotification.py
+@reboot sleep 60 && /home/user/serwer_raspberry_pi/rebootNotification.py
 */5 * * * * /home/user/serwer_raspberry_pi/connections/reconnect_led_controller.sh
 */5 * * * * /home/user/serwer_raspberry_pi/connections/reconnect_valve_controller.sh
 */5 * * * * /home/user/serwer_raspberry_pi/connections/reconnect_weather_device.sh
 */5 * * * * /home/user/serwer_raspberry_pi/valveAutoOff.py
 2 * * * * /usr/bin/php /home/user/serwer_raspberry_pi/connections/send_data_to_db.php
 ```
-TODO: I should change location od serwer_raspberry_pi and name
+TODO: I should change location and name of serwer_raspberry_pi
+
 9. Configuration of /etc/rc.local
-   - paste this to /etc/rc.local
+
+paste this to /etc/rc.local
 ```
 /home/user/serwer_raspberry_pi/connections/WEATHER_INFO_connect &
 /home/user/serwer_raspberry_pi/connections/LED_CTRL_connect &
@@ -67,7 +72,8 @@ TODO: I should change location od serwer_raspberry_pi and name
 /home/user/serwer_raspberry_pi/connections/gpio_config.sh &
 /home/user/serwer_raspberry_pi/connections/periodically_receive_run_all.sh &
 ```
-TODO: I should change location od serwer_raspberry_pi and name
+TODO: I should change location and name of serwer_raspberry_pi
+
 10. Watchdog
     - [Setting up the raspberry pi watchdog](https://www.domoticz.com/wiki/Setting_up_the_raspberry_pi_watchdog)
 
@@ -80,7 +86,7 @@ TODO: I should change location od serwer_raspberry_pi and name
 [http-get-dos]
 
 ```
-however, solution is in comments
+The solution is also in the comments
 
 
 ## The source code will be avalible here:
