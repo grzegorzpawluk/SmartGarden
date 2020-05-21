@@ -2,11 +2,13 @@
 SmartGarden: weather station, lighting control, garden irrigation.
 
 
-## Here I will describe me project.
+## Project description.
 
  This project is based on Raspberry Pi Zero WH 512MB RAM - WiFi + BT 4.1. There is a server, website and stm32 handler (weather station, valve controller,led controller).
  Throuh web site users can controll lighting, garden sprinklers and receive weather informations.
  Connections between Raspberry Pi and STM are established via Bluetooth.
+
+![System diagram](system_diagram.png)
 
 ## To configure the system you should:
 (in case of Raspberry Pi)
